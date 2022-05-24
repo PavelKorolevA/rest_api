@@ -1,5 +1,6 @@
 package tests;
 
+import models.LombokUserData;
 import models.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -70,5 +71,22 @@ public class ReqresinTests extends TestBase{
                 .extract().as(User.class);
 
         assertEquals(response.getError(), "Missing password");
+    }
+
+    @Test
+    @DisplayName("Search for a user")
+    void singleUser() {
+
+        LombokUserData response = given()
+                .spec(request)
+                .when()
+                .get("/users/2")
+                .then()
+                .spec(responseSpec200)
+                .log().body()
+                .extract().as(LombokUserData.class);
+
+        assertEquals("2", response.getUser().getId());
+        assertEquals("janet.weaver@reqres.in", response.getUser().getEmail());
     }
 }
