@@ -1,0 +1,8 @@
+Bot_token 5294134989:AAF3YZ7rkGdEVry2TOoRJh97j-I7DdQOZ-8
+
+Chat_ID -1001700448302
+
+curl -X POST \
+-H 'Content-Type: application/json'\
+-d '{"chat_id": "-1001700448302", "text": "This is a test from pkorolev", "disable_notification": true}' \
+https://api.telegram.org/bot5294134989:AAF3YZ7rkGdEVry2TOoRJh97j-I7DdQOZ-8/sendMessage
