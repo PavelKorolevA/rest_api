@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReqresinTests extends TestBase{
-
+//
     @Test
     @DisplayName("Successful registration")
     void successfulRegister() {
