@@ -52,4 +52,23 @@ public class ReqresinTests extends TestBase{
 
         assertEquals(response.getToken(), "QpwL5tke4Pnpja7X4");
     }
+
+    @Test
+    @DisplayName("Unsuccessful authorization")
+    void unsuccessfulLogin() {
+        User user = new User();
+        user.setEmail("peter@klaven");
+
+        User response = given()
+                .spec(request)
+                .body(user)
+                .when()
+                .post("/login")
+                .then()
+                .statusCode(400)
+                .log().body()
+                .extract().as(User.class);
+
+        assertEquals(response.getError(), "Missing password");
+    }
 }
