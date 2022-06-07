@@ -8,5 +8,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LombokUserData {
     @JsonProperty("data")
-    private User user;
+    private JsonUserData jsonUserData;
 }
